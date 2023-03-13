@@ -13,7 +13,7 @@ public class OddOrEven {
         String even = ("Number " + evenOdd + " is even.");
         String result;
 
-        result = (evenOdd % 2 > 0) ? odd : even;
+        result = (evenOdd % 2 > 0 || evenOdd % 2 < 0) ? odd : even;
       
         System.out.println(result);
     }
