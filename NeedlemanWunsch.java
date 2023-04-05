@@ -55,3 +55,28 @@ public class NeedlemanWunsch {
         System.out.println(alignmentSeq2.reverse().toString());
     }
 }
+
+
+/*
+
+1. The program first defines the input sequences seq1 and seq2, as well as the scoring parameters match, mismatch, and gap.
+
+2. It then initializes a 2D scoring matrix scoreMatrix with dimensions (seq1.length() + 1) x (seq2.length() + 1). 
+The first row and column of the matrix are filled with gap penalties.
+
+3. The program then fills in the rest of the matrix using a nested loop. 
+For each cell (i, j) in the matrix, it calculates three possible scores: matchScore, deleteScore, and insertScore. 
+These scores represent the maximum possible scores if the current cell is a match/mismatch, deletion, or insertion, respectively. 
+The maximum of these three scores is then stored in the current cell.
+
+4. Once the scoring matrix is filled, the program performs traceback to construct the optimal alignment. 
+Starting from the bottom-right corner of the matrix, it moves diagonally if the current cell is a match/mismatch, up if it is a deletion, or left if it is an insertion. 
+It continues moving until it reaches the top-left corner of the matrix.
+
+5. During traceback, the program constructs two strings alignmentSeq1 and alignmentSeq2 representing the aligned sequences. 
+If it moves diagonally, it appends the corresponding characters from both sequences to their respective aligned sequences. 
+If it moves up or left, it appends a gap character to one of the aligned sequences and the corresponding character from the other sequence to its aligned sequence.
+
+6. Finally, once traceback is complete, the program reverses both aligned sequences and prints them to standard output.
+
+*/
